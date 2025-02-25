@@ -8,10 +8,10 @@ This project was created for WayneHacks 3 @ Wayne State University! See the DevP
 
 ## Examples
 Image Overlay
-![MovingAround](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGhqc2tzemJwdXZudDR2bzRnYTNiYzl6bG5mM2wxcjFpNmZubHF5biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gblczuRtxUJ9BsdLwe/giphy.gif)
+![MovingAround](https://media.giphy.com/media/KuctWjTFOMstAcVltz/giphy.gif)
 
 Texturized Pointcloud 
-![TexturizedPointcloud](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3gweXhzOWkxeXJtdWhqYmNwdjNvcTNvdG5yZzZwZ3Fyb2Z6aW1waiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Re3MyLJJZCQJUdCHlX/giphy.gif)
+![TexturizedPointcloud](https://media.giphy.com/media/0bPdVFwV30j0Uj2aIh/giphy.gif)
 
 Using depth information for plotting lanes
 ![lanes](media/lanes.png)
