@@ -31,15 +31,18 @@ class Fusion(Node):
         super().__init__('fuser')
 
         self.declare_parameter('transformation_matrix', [
-            1, 0, 0, 0,
-            0, 1, 0, 0,
-            0, 0, 1, 0,
-            0, 0, 0, 1
+            1., 0., 0., 0.,
+            0., 1., 0., 0.,
+            0., 0., 1., 0.,
+            0., 0., 0., 1.
             ])
 
         self.declare_parameter('pointcloud_topic', 'velodyne_points')
         self.declare_parameter('image_topic', 'camera/image')
         self.declare_parameter('depth_map', 'camera/image/depth')
+        self.declare_parameter('texturized_pointcloud', 'textured_pointcloud')
+        self.declare_parameter('texturized_depth_map', 'texturized_depth_map')
+        self.declare_parameter('image_overlay', 'image_overlay')
 
         self.subscriber_ = self.create_subscription(
             Image,
@@ -60,12 +63,17 @@ class Fusion(Node):
 
         self.texturized_pointcloud_publisher_ = self.create_publisher(
             PointCloud2,
-            'textured_pointcloud',
+            self.get_parameter('texturized_pointcloud').value,
             1)
 
         self.texturized_depth_map_publisher_ = self.create_publisher(
             Image,
-            "texturized_depth_map",
+            self.get_parameter('texturized_depth_map').value,
+            1)
+
+        self.image_overlay_publisher_ = self.create_publisher(
+            Image,
+            self.get_parameter('image_overlay').value,
             1)
         
         self.get_logger().info(str(self.get_parameter('transformation_matrix').value))
@@ -140,7 +148,8 @@ class Fusion(Node):
         colors = numpy_image[v, u]
 
         if self.texturized_pointcloud_publisher_.get_subscription_count() > 0:
-            # Add alpha channel and concatenate for rviz2
+            # Add alpha channel and concatenate
+            # Rviz expects the color to be in the format of rgba_uint32
             alpha = np.full(colors.shape[0], 255, dtype=np.uint32)
             rgba_colors = np.column_stack((colors.astype(np.uint32), alpha))
             rgba_uint32 = (
@@ -205,6 +214,26 @@ class Fusion(Node):
             
             self.texturized_depth_map_publisher_.publish(
                 self.bridge.cv2_to_imgmsg(colored_depth_map, encoding='bgr8'))
+
+        if self.image_overlay_publisher_.get_subscription_count() > 0:
+            # Overlay the point cloud on the image
+            for i in range(len(u)):
+                u_coord = u[i]
+                v_coord = v[i]
+                color = get_color_for_distance(distance=r[i])
+                cv2.circle(numpy_image, (u_coord, v_coord), 1, color, -1)
+
+            self.image_overlay_publisher_.publish(
+                self.bridge.cv2_to_imgmsg(numpy_image, encoding='bgr8'))
+
+def get_color_for_distance(distance):
+    # Map distance to a color gradient (e.g., from blue to red)
+    max_distance = 5.0  # Maximum distance for normalization
+    normalized_distance = min(distance / max_distance, 1.0)
+    blue = int((1 - normalized_distance) * 255)
+    red = int(normalized_distance * 255)
+    return (red, 155, blue)
+
 
 def main(args=None):
     rclpy.init(args=args)
