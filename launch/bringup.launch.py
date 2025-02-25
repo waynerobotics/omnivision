@@ -32,12 +32,15 @@ def generate_launch_description():
                     'transformation_matrix': [
                         1, 0, 0, 0,
                         0, 1, 0, 0,
-                        0, 0, 1, 0,
+                        0, 0, 1, -0.203,
                         0, 0, 0, 1
                     ],
                     'pointcloud_topic': 'velodyne_points',
                     'image_topic': 'camera/image',
-                    'depth_map': 'camera/image/depth'
+                    'depth_map': 'camera/image/depth',
+                    'texturized_pointcloud': 'textured_pointcloud',
+                    'texturized_depth_map': 'texturized_depth_map',
+                    'image_overlay': 'image_overlay'
                 }
             ]
     )
