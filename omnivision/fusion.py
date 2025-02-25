@@ -183,6 +183,7 @@ class Fusion(Node):
 
             # Publish the textured point cloud
             self.texturized_pointcloud_publisher_.publish(textured_pointcloud)
+            self.texturized_pointcloud_publisher_.publish(textured_pointcloud)
             self.get_logger().info('Published textured point cloud')
 
         if self.depth_map_publisher_.get_subscription_count() > 0:

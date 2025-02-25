@@ -6,9 +6,19 @@ Applications include anywhere you need full surrounding depth information using 
 
 This project was created for WayneHacks 3 @ Wayne State University! See the DevPost submission [here](https://devpost.com/software/immersive-visual-fusion?_gl=1*j515sv*_gcl_au*MTE2NzU3NDQ5OC4xNzM3MjcwNzg2*_ga*MTU5ODMzMzgwOS4xNzM3MjcwODM1*_ga_0YHJK3Y10M*MTc0MDExNjY0OC4xNC4xLjE3NDAxMTY2ODMuMC4wLjA.).
 
+## Examples
+Image Overlay
+![MovingAround](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGhqc2tzemJwdXZudDR2bzRnYTNiYzl6bG5mM2wxcjFpNmZubHF5biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gblczuRtxUJ9BsdLwe/giphy.gif)
+
+Texturized Pointcloud 
+![TexturizedPointcloud](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3gweXhzOWkxeXJtdWhqYmNwdjNvcTNvdG5yZzZwZ3Fyb2Z6aW1waiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Re3MyLJJZCQJUdCHlX/giphy.gif)
+
+Using depth information for plotting lanes
+![lanes](media/lanes.png)
+
 ## Features 🚀
 
-- **360-degree Camera and LiDAR Integration**: Full environmental coverage from 3D LiDAR and 360° camera.
+- **360° Camera and LiDAR Integration**: Full environmental coverage from 3D LiDAR and 360° camera.
 
 - **Data Fusion**: Combine camera and LiDAR data to generate textured point clouds.
 
@@ -81,8 +91,6 @@ ros2 launch omnivision bringup.launch.py camera_topic:=/my_camera lidar_topic:=/
 ## To Do (Contributions Welcome!) 🛠️
 
 - Optimization: Improve processing efficiency and reduce resource usage.
-
-- Media: Add sample images, videos, and point cloud visualizations to the repository.
 
 - LiDAR Interpolation: Add an option to interpolate LiDAR data for denser point clouds.
 
