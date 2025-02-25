@@ -7,13 +7,13 @@ Applications include anywhere you need full surrounding depth information using 
 This project was created for WayneHacks 3 @ Wayne State University! See the DevPost submission [here](https://devpost.com/software/immersive-visual-fusion?_gl=1*j515sv*_gcl_au*MTE2NzU3NDQ5OC4xNzM3MjcwNzg2*_ga*MTU5ODMzMzgwOS4xNzM3MjcwODM1*_ga_0YHJK3Y10M*MTc0MDExNjY0OC4xNC4xLjE3NDAxMTY2ODMuMC4wLjA.).
 
 ## Examples
-Image Overlay
+### Image Overlay
 ![MovingAround](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW80b2k0OTJxOTV2dncwM2Nlb2gzaWE5ZGdydm1rMHRjZTBtazk4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5Jasty0HkxvspU0DSM/giphy.gif)
 
-Texturized Pointcloud 
+### Texturized Pointcloud 
 ![TexturizedPointcloud](https://media.giphy.com/media/0bPdVFwV30j0Uj2aIh/giphy.gif)
 
-Using depth information for plotting lanes
+### Using depth information for plotting lanes
 ![lanes](media/lanes.png)
 
 ## Features 🚀
