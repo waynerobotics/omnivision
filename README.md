@@ -8,7 +8,7 @@ This project was created for WayneHacks 3 @ Wayne State University! See the DevP
 
 ## Examples
 Image Overlay
-![MovingAround](https://media.giphy.com/media/KuctWjTFOMstAcVltz/giphy.gif)
+![MovingAround](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW80b2k0OTJxOTV2dncwM2Nlb2gzaWE5ZGdydm1rMHRjZTBtazk4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5Jasty0HkxvspU0DSM/giphy.gif)
 
 Texturized Pointcloud 
 ![TexturizedPointcloud](https://media.giphy.com/media/0bPdVFwV30j0Uj2aIh/giphy.gif)
