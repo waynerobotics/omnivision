@@ -1,6 +1,10 @@
+#
+# This is unneeded and doesn't work
+#
+
 import rclpy
 from rclpy.node import Node
-from nav2_simple_commander.costmap_2d import CostmapLayer
+# from nav2_simple_commander.costmap_2d import CostmapLayer
 from sensor_msgs.msg import PointCloud2
 import numpy as np
 from sensor_msgs_py import point_cloud2

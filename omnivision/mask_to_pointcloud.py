@@ -37,7 +37,7 @@ class MaskToPointCloud(Node):
             0., 0., 1., 0.,
             0., 0., 0., 1.
             ])
-        self.declare_parameter('pointcloud_topic', 'velodyne_points')
+        self.declare_parameter('pointcloud_topic', '/unilidar/cloud')
         self.declare_parameter('mask_topic', '/perception/lane_obstacle_mask')
         self.declare_parameter('obstacle_pointcloud', 'obstacle_pointcloud')
         self.declare_parameter('debug_overlay', 'debug/mask_overlay')
@@ -191,7 +191,13 @@ class MaskToPointCloud(Node):
                 pc2.PointField(name='ring', offset=16, datatype=pc2.PointField.UINT16, count=1),
                 pc2.PointField(name='time', offset=20, datatype=pc2.PointField.FLOAT32, count=1),
             ]
-            obstacle_pointcloud = pc2.create_cloud(header, fields, obstacle_points)
+            
+            # Convert to the right dtype that matches the fields
+            points_list = [(p['x'], p['y'], p['z'], p['intensity'], p['ring'], p['time']) 
+                          for p in obstacle_points]
+            
+            # Create cloud using list of points instead of numpy array
+            obstacle_pointcloud = pc2.create_cloud(header, fields, points_list)
 
             # Publish obstacle point cloud
             self.obstacle_pointcloud_pub.publish(obstacle_pointcloud)
