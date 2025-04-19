@@ -15,6 +15,8 @@
 
   <depend>rclpy</depend>
   <depend>cv_bridge</depend>
+  <depend>nav2_costmap_2d</depend>
+  <depend>pluginlib</depend>
   <depend>sensor_msgs</depend>
   <depend>opencv-python</depend>
   <depend>numpy</depend>
@@ -25,6 +27,7 @@
   <test_depend>python3-pytest</test_depend>
 
   <export>
+    <nav2_costmap_2d plugin="${prefix}/point_cloud_layer_plugin.xml" />
     <build_type>ament_python</build_type>
   </export>
 </package>

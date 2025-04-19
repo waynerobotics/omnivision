@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'fusion = omnivision.fusion:main',
+            'mask_to_pointcloud = omnivision.mask_to_pointcloud:main',
         ],
     },
 )
