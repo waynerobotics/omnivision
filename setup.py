@@ -26,6 +26,9 @@ setup(
         'console_scripts': [
             'fusion = omnivision.fusion:main',
             'mask_to_pointcloud = omnivision.mask_to_pointcloud:main',
+            'transformation_calibrator = omnivision.transformation_calibrator:main',
+            'transformation_reconfigure = omnivision.transformation_reconfigure:main',
+            'transformation_gui = omnivision.transformation_gui:main',
         ],
     },
 )

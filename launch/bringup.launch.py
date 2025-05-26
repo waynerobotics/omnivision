@@ -24,19 +24,20 @@ from launch_ros.actions import Node
 def generate_launch_description():
     fuser = Node(
             package='omnivision',
-            executable='fusion',
-            name='fuser',
+            executable='mask_to_pointcloud',
+            name='mask_to_pointcloud',
+            # name='fuser',
             output='screen',
             parameters=[
                 {
                     'transformation_matrix': [
-                        1, 0, 0, 0,
-                        0, 1, 0, 0,
-                        0, 0, 1, -0.203,
+                        0, -1, 0, -0.058,
+                        -1, 0, 0, 0,
+                        0, 0, -1, 0.09,
                         0, 0, 0, 1
                     ],
-                    'pointcloud_topic': 'velodyne_points',
-                    'image_topic': 'camera/image',
+                    'pointcloud_topic': 'unilidar/cloud',
+                    'mask_topic': 'lane_detection/segmentation_mask',
                     'depth_map': 'camera/image/depth',
                     'texturized_pointcloud': 'textured_pointcloud',
                     'texturized_depth_map': 'texturized_depth_map',
